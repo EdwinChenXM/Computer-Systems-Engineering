@@ -122,11 +122,12 @@ public class lab1 {
 								currentPath = currentDir.getAbsolutePath();
 								i++;
 							}
-							currentDir = new File(command[1]);
+							
+							
 							//currentPath = currentDir.getAbsolutePath(); ??? why is this wrong
-							currentPath = currentDir.toString();
-							System.out.println(currentPath);
-							context.takeHistory(commandLine);
+							//currentPath = currentDir.toString();
+							System.out.println("Please enter a valid directory");
+							//context.takeHistory(commandLine);
 							continue;
 						}catch(ArrayIndexOutOfBoundsException e){
 							context.takeHistory(commandLine);
@@ -136,7 +137,7 @@ public class lab1 {
 					}
 					
 				}catch(ArrayIndexOutOfBoundsException e){
-					System.out.println("Please enter a valid directory");
+					System.out.println(currentDir);
 					continue;
 				}
 				
