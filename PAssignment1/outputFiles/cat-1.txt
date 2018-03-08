@@ -1,0 +1,10 @@
+  PID TTY          TIME CMD
+ 2814 pts/20   00:00:00 bash
+ 3492 pts/20   00:00:00 studio.sh
+ 3603 pts/20   00:28:44 java
+ 3744 pts/20   00:00:05 fsnotifier64
+21277 pts/20   00:00:00 java
+21304 pts/20   00:00:00 echo
+21305 pts/20   00:00:00 sleep
+21307 pts/20   00:00:00 ps
+21309 pts/20   00:00:00 cat
