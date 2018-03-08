@@ -113,7 +113,19 @@ public class ProcessManagement {
 
                 ProcessBuilder pb = new ProcessBuilder();
                 pb.directory(currentDirectory);
-                pb.command(ProcessGraph.nodes.get(Runnable.get(i)).getCommand().split(" "));
+
+                String[] Command = ProcessGraph.nodes.get(Runnable.get(i)).getCommand().split(" ");
+                if(Command[0].equals("wc") | Command[0].equals("cat")){
+                    for(int j = 1; j < Command.length; j++){
+                        if(Command[j].charAt(0) != '-'){
+                            Command[j] = "outputFiles/" + Command[j];
+                        }
+                    }
+
+
+
+                }
+                pb.command(Command);
 
 
                 //Redirect Output and inputFiles from stdin and stdout
@@ -134,7 +146,7 @@ public class ProcessManagement {
 
                         if(command.size()>1){
                             for(int j = 1; j < command.size(); j++){
-                                File tempFile = new File("outputFiles/" + command.get(j));
+                                File tempFile = new File(command.get(j));
                                 if(!tempFile.exists()){
                                     System.out.println("This Graph is not able to be completed due to unresolved data dependencies, error code 2");
                                     System.out.println("Problematic Node: " + Runnable.get(i));
@@ -146,7 +158,8 @@ public class ProcessManagement {
                         if(command.size()>1){
                             for(int j = 1; j < command.size(); j++){
                                 if(command.get(j).charAt(0)!='-'){
-                                    File tempFile = new File("outputFiles/" + command.get(j));
+                                    File tempFile = new File(command.get(j));
+                                    System.out.println(tempFile);
                                     if(!tempFile.exists()){
                                         System.out.println("This Graph is not able to be completed due to unresolved data dependencies, error code 3");
                                         return;
@@ -158,7 +171,12 @@ public class ProcessManagement {
 
 
                     //Finally executing the node, knowing that it fulfills all dependencies
-                    pb.start();
+                    Process p = pb.start();
+                    p.waitFor();
+
+
+
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

@@ -1,0 +1,5 @@
+    51    643   3620 outcity.txt
+    62    753   4210 outParis.txt
+    28    299   1789 outLondon.txt
+ 16272 138883 806878 outentirebook.txt
+ 16413 140578 816497 total

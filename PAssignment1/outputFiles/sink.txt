@@ -1,2 +1,5 @@
-hi there
-wazzup
+    51    643   3620 outputFiles/outcity.txt
+    62    753   4210 outputFiles/outParis.txt
+    28    299   1789 outputFiles/outLondon.txt
+ 16272 138883 806878 outputFiles/outentirebook.txt
+ 16413 140578 816497 total
